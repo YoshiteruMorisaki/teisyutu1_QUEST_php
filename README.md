@@ -1,4 +1,4 @@
 # teisyutu1_QUEST_php
 
 
-php Main.php で開始
+php Main.php で実行開始
