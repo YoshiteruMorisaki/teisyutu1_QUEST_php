@@ -46,7 +46,7 @@ class Game {
 
 
             echo $this->players[0]->getPlayerName() . 'のカードは' . $P1_card[0] . 'の' . $P1_card[2] . "です。\n";
-            echo $this->players[0]->getPlayerName() . 'のカードは' . $P2_card[0] . 'の' . $P2_card[2] . "です。\n";
+            echo $this->players[1]->getPlayerName() . 'のカードは' . $P2_card[0] . 'の' . $P2_card[2] . "です。\n";
 
              // ランクの比較 
              // while文の中で再度ループ開始
@@ -67,7 +67,7 @@ class Game {
                 $setFieldCard[] = $P2_card;
 
                 echo $this->players[0]->getPlayerName() . 'のカードは' . $P1_card[0] . 'の' . $P1_card[2] . "です。\n";
-                echo $this->players[0]->getPlayerName() . 'のカードは' . $P2_card[0] . 'の' . $P2_card[2] . "です。\n";
+                echo $this->players[1]->getPlayerName() . 'のカードは' . $P2_card[0] . 'の' . $P2_card[2] . "です。\n";
                 
             }
             // 勝者の手札更新
@@ -88,14 +88,15 @@ class Game {
                 echo $this->players[1]->getPlayerName() . "の手札が無くなりました。\n";
                 echo $this->players[0]->getPlayerName() . 'の手札の枚数は52枚です。' . $this->players[1]->getPlayerName() . "の手札の枚数は0枚です。\n";
                 echo $this->players[0]->getPlayerName() . 'が1位、' . $this->players[1]->getPlayerName() . "が2位です。\n";
-
+                break;
+            }
             // プレイヤー2の勝利
-            } else if(!$this->players[0]->issetHand()){
+            if(!$this->players[0]->issetHand()){
 
                 echo $this->players[0]->getPlayerName() . "の手札が無くなりました。\n";
                 echo $this->players[1]->getPlayerName() . 'の手札の枚数は52枚です。' . $this->players[0]->getPlayerName() . "の手札の枚数は0枚です。\n";
                 echo $this->players[1]->getPlayerName() . 'が1位、' . $this->players[0]->getPlayerName() . "が2位です。\n";
-
+                break;
             }
 
         }

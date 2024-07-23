@@ -20,7 +20,8 @@ class Player {
         // 山札の枚数更新
         array_splice($preparedDeck, 0, $numberSheets);
         $deck->setDeck($preparedDeck);
-        return $this->hand = $dealCard;
+        $this->hand = $dealCard;
+        return $this->hand;
     }
 
     public function getHand():array {
