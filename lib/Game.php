@@ -54,22 +54,21 @@ class Game {
 
                 echo "引き分けです。\n";
 
-                if($this->players[0]->issetHand() && $this->players[1]->issetHand()) {
-
-                    $P1_card = $this->players[0]->playCard();
-                    $P2_card = $this->players[1]->playCard();
-
-                    $setFieldCard[] = $P1_card;
-                    $setFieldCard[] = $P2_card;
-
-                    echo $this->players[0]->getPlayerName() . 'のカードは' . $P1_card[0] . 'の' . $P1_card[2] . "です。\n";
-                    echo $this->players[0]->getPlayerName() . 'のカードは' . $P2_card[0] . 'の' . $P2_card[2] . "です。\n";
-        
-                } else {
+                if(!$this->players[0]->issetHand() || !$this->players[1]->issetHand()) {
 
                     echo "手札が無くなりました。戦争を終了します。\n";
                     break 2;
                 }
+
+                $P1_card = $this->players[0]->playCard();
+                $P2_card = $this->players[1]->playCard();
+
+                $setFieldCard[] = $P1_card;
+                $setFieldCard[] = $P2_card;
+
+                echo $this->players[0]->getPlayerName() . 'のカードは' . $P1_card[0] . 'の' . $P1_card[2] . "です。\n";
+                echo $this->players[0]->getPlayerName() . 'のカードは' . $P2_card[0] . 'の' . $P2_card[2] . "です。\n";
+                
             }
             // 勝者の手札更新
             if($P1_card[1] > $P2_card[1]){
@@ -99,8 +98,7 @@ class Game {
 
             }
 
-            echo "戦争を終了します。\n";
-
         }
+        echo "戦争を終了します。\n";
     }
 }
