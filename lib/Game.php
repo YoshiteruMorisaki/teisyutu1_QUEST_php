@@ -50,15 +50,17 @@ class Game {
 
              // ランクの比較 
              // while文の中で再度ループ開始
-            while($P1_card[1] == $P2_card[1]) {
+            if($P1_card[1] === $P2_card[1]) {
 
                 echo "引き分けです。\n";
 
                 if(!$this->players[0]->issetHand() || !$this->players[1]->issetHand()) {
 
                     echo "手札が無くなりました。戦争を終了します。\n";
-                    break 2;
+                    break;
                 }
+
+
 
                 $P1_card = $this->players[0]->playCard();
                 $P2_card = $this->players[1]->playCard();
